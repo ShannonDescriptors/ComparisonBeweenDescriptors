@@ -7,7 +7,7 @@ This repository holds the codes pertaining to Tables 2 and 3 of the article 'Har
 
 Description
 -----------
-Shannon entropy framework has been demonstrated as an efficient descriptor for regression-type machine learning problem using MLP-based deep neural networks as well as general machine learning models. In this specific case, we scale up the Shannon entropy-based descriptors (SEF) to model and predict the following: (i) BEI (Ligand Binding Efficiency Index) values of molecules or ligands of different target IDs from ChEMBL, (ii) provide kNN baseline model predictions of the respective datasets corresponding to the target IDs and (iii) compare applicability and performance of Morgan Fingerprint, SEF, SHED descriptors and their combinations across MLP-based deep neural networks and random forest-based general machine learning models. The specific objectives of the codes are described in the Notes section below. The basic dataset has been provided in the repository in the form of .csv files.
+Shannon entropy framework has been demonstrated as an efficient descriptor for regression-type machine learning problem using MLP-based deep neural networks as well as general machine learning models. In this specific case, we scale up the Shannon entropy-based descriptors (SEF) to model and predict the following: (i) BEI (Ligand Binding Efficiency Index), pChEMBL and LogP values of molecules or ligands of different target IDs from ChEMBL, (ii) provide kNN baseline model predictions of the respective datasets corresponding to the target IDs and (iii) compare applicability and performance of Morgan Fingerprint, SEF, SHED descriptors and their combinations across MLP-based deep neural networks and random forest-based general machine learning models. The specific objectives of the codes are described in the Notes section below. The basic dataset has been provided in the repository in the form of .csv files.
 
 Usage
 -----
@@ -21,22 +21,20 @@ Notes
 -----
 1. The function file is KiNet_mlp.py. Therefore, directly run the other python files apart from this one.
 
-2. The provided .csv files are: (i) 
+2. The provided .csv files are: (i) downloaded and curated dataset for the BEI model/prediction of the target ID CHEMBL2842: 'CHEMBL2842_mod2.csv', (ii) generated SHED descriptors for the BEI model/prediction of target ID CHEMBL2842 using the python script file 'data_prep_SHED.py': 'SHED_keys_CHEMBL2842_mod2.csv'
 
-2. The objectives and usage of the rest of the scripts are as follows: Please run the python scripts directly or using the command line 'python <script_name.py> from the terminal
+3. The jre executable 'jCMapperCLI.jar' is required to generate SHED descriptors running the 'data_prep_SHED.py'
 
-(i) MLP_only_train_test_hybrid_pchembl_MW_without_shannon_entropy.py: This script could run MLP-based deep neural network model for pchembl/MW prediction (of IC50 of Tissue Factor Pathway Inhibitor) without using any Shannon entropies as descriptor and only using the MW as the sole descriptor. The target is MW-normalized pchembl value or pchembl/MW.
+4. The objectives and usage of the rest of the scripts are as follows: Please run the python scripts directly or using the command line 'python <script_name.py> from the terminal
 
-(ii) MLP_only_train_test_hybrid_pchembl_MW_with_shannon_entropy.py: This script could run MLP-based deep neural network model for pchembl/MW prediction (of IC50 of Tissue Factor Pathway Inhibitor) using Shannon entropy (SMILES/SMARTS/InChiKey-based) as descriptor along with the MW as the other descriptor
+(i) kNN_regression.py: This script runs kNN-based machine learning regression models based on ECFP4-based Tanimoto similarity between molecules.
 
-(iii)MLP_only_train_test_hybrid_pchembl_MW_with_shannon_entropy_smiles_smarts_inchikey_partial_shannon_smiles.py: This script could run MLP only model for pchembl/MW prediction (of IC50 of Tissue Factor Pathway Inhibitor) using combination of Shannon entropies (SMILES Shannon, SMARTS Shannon, InChiKey Shannon and SMILES partial/ fractional Shannon) and MW as descriptors. The SMILES-based fractional Shannon could add more accuracy to the model prediction.
+(ii) kNN_classification.py: This script runs kNN-based machine learning classification model based on ECFP4-based Tanimoto similarity between molecules.
 
-(iv) MLP_only_train_test_hybrid_ligand_eff_without_shannon_entropy.py: This script could run MLP-based deep neural network model for predicting BEI (Ligand Binding Efficiency Index) values of molecules (ligands of Tissue Factor Pathway Inhibitor) without using any Shannon entropies as descriptor and only using the MW as the sole descriptor
+(iii) random_forest_regression.py: This script runs random forest regression-based machine learning models based on SEF, Morgan fingerprint and SHED descriptors
 
-(v) MLP_only_train_test_hybrid_ligand_eff_with_shannon_entropy.py:This script could run an MLP only model for predicting BEI values of molecules (ligands of Tissue Factor Pathway Inhibitor) with using Shannon entropy as a descriptor along with using the MW as the other descriptor
+(iv) MLP_based_DNN_regression.py and/or MLP_based_DNN_regression_mod.py: These scripts could run MLP-based deep neural network models comparing SEF, Morgan Fingerprint and SHED descriptors. The basic script is 'MLP_based_DNN_regression.py' and more advanced script is 'MLP_based_DNN_regression_mod.py' containing more features of SEF descriptor.
 
-(vi) MLP_only_train_test_hybrid_ligand_eff_with_shannon_entropy_smiles_smarts_inchikey_with_partial_shannon.py: This script could run MLP-based deep neural network model for predicting BEI values of molecules (ligands of Tissue Factor Pathway Inhibitor) using combination of Shannon entropies (SMILES Shannon, SMARTS Shannon, InChiKey Shannon and SMILES partial/ fractional Shannon) and MW as descriptors
+(v) data_prep_SHED.py:This script could build SHED keys (SHED descriptors) from a list of SMILES using 'jCMapperCLI.jar' 
 
-(vii) MLP_only_train_test_hybrid_ligand_eff_with_morgan_fingerprint.py:This script could run MLP-based deep neural network model for predicting BEI values of molecules (ligands of Tissue Factor Pathway Inhibitor) using different combinations of Morgan Fingerprint (with or without), Shannon entropies (SMILES Shannon and SMILES partial/ fractional Shannon) and MW as descriptors 
 
-(viii) MLP_only_train_test_hybrid_pCHEMBL_with_shannon_entropy_and_other descriptors.py: This script could run MLP-based deep neural network model for pchembl/MW prediction (of IC50 of Tissue Factor Pathway Inhibitor) using Shannon entropy as descriptor along with using BEI and MW as other descriptors (Ligand Efficiency BEI prediction from script#(vii)) 
