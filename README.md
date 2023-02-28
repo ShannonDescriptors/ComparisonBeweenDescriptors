@@ -1,4 +1,4 @@
-# ComparisonOfDescriptors
+# Comparison between Descriptors
 Comparison between Shannon Entropy Framework-based Descriptors (SEF), Morgan Fingerprint and SHED descriptors
 
 Harnessing Shannon entropy of molecular symbols in deep neural networks to enhance prediction accuracy
