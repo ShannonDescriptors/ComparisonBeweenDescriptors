@@ -1,4 +1,4 @@
-### This script runs kNN-based machine learning model based on ECFP4-based Tanimoto similarity between molecules
+### This script runs kNN-based machine learning regression models using ECFP4-based Tanimoto similarity between molecules
 
 
 # import the necessary packages
