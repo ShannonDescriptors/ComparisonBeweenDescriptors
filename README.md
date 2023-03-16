@@ -3,7 +3,7 @@ Comparison between Shannon Entropy Framework-based Descriptors (SEF), Morgan Fin
 
 Harnessing Shannon entropy of molecular symbols in deep neural networks to enhance prediction accuracy
 ------------------------------------------------------------------------------------------------------
-This repository holds the codes pertaining to Tables 2 and 3 of the article 'Harnessing Shannon entropy of molecular symbols in deep neural networks to enhance prediction accuracy'.
+This repository holds the codes pertaining to Tables 2 and 3 of the article 'Harnessing Shannon entropy-based descriptors in machine learning models to enhance the prediction accuracy of molecular properties'.
 
 Description
 -----------
